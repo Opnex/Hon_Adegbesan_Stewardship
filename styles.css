@@ -1,0 +1,500 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f9fa;
+}
+
+/* Cover Page Styles */
+.cover-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #667eea 50%, #764ba2 75%, #f093fb 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Watermark Background */
+.watermark-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    opacity: 0.08;
+}
+
+.watermark {
+    width: 70%;
+    height: auto;
+    opacity: 0.4;
+    filter: brightness(0.8) contrast(1.2);
+}
+
+/* Header Section */
+.header-section {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-container {
+    text-align: center;
+    padding: 1rem;
+}
+
+.apc-logo, .ogun-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.apc-logo:hover, .ogun-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.logo-caption {
+    font-size: 0.9rem;
+    color: white;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.main-title-container {
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.title-accent {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700, #ff8c00, #ff4500);
+    margin: 1rem auto;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+.period {
+    font-size: 1.5rem;
+    color: #ffd700;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Profile Section */
+.profile-section {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 0;
+}
+
+.profile-container {
+    text-align: center;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.profile-image {
+    width: 280px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.profile-border {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ffd700, #ff8c00, #ff4500, #ffd700);
+    background-size: 400% 400%;
+    animation: borderGlow 3s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes borderGlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.profile-info {
+    margin-top: 1rem;
+}
+
+.hon-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.qualifications {
+    font-size: 1.3rem;
+    color: #ffd700;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.role-details {
+    margin-bottom: 1rem;
+}
+
+.role {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.constituency {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.country {
+    font-size: 1.1rem;
+    color: #ffd700;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Categories Section */
+.categories-section {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 0;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.category-card:hover::before {
+    left: 100%;
+}
+
+.category-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: #ffd700;
+}
+
+.category-card:active {
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* Loading spinner for clickable cards */
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.category-card.primary {
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8));
+}
+
+.category-card.secondary {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+}
+
+.category-icon {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.category-icon i {
+    font-size: 3rem;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.category-content {
+    text-align: center;
+}
+
+.category-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    color: #1e3c72;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin: 0 auto 1rem;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.category-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.category-subtitle {
+    font-size: 1rem;
+    color: #e0e0e0;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer Section */
+.footer-section {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 1rem;
+}
+
+.footer-nigeria-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.footer-motto {
+    font-size: 1.2rem;
+    color: #ffd700;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+}
+
+.footer-text {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.footer-date {
+    font-size: 0.9rem;
+    color: #ffd700;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+    
+    .hon-name {
+        font-size: 2rem;
+    }
+    
+    .profile-image {
+        width: 240px;
+        height: 300px;
+    }
+    
+    .apc-logo, .ogun-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .category-card {
+        padding: 1.5rem;
+    }
+    
+    .category-icon i {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .cover-page {
+        padding: 1rem 0;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .hon-name {
+        font-size: 1.6rem;
+    }
+    
+    .profile-image {
+        width: 200px;
+        height: 250px;
+    }
+    
+    .apc-logo, .ogun-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .category-card {
+        padding: 1rem;
+    }
+    
+    .category-icon i {
+        font-size: 2rem;
+    }
+    
+    .category-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .cover-page {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .category-card {
+        background: #f5f5f5 !important;
+        border-color: #ddd !important;
+        color: black !important;
+    }
+    
+    .category-number {
+        background: #ffd700 !important;
+        color: #1e3c72 !important;
+    }
+    
+    .watermark-bg {
+        display: none;
+    }
+}
+
