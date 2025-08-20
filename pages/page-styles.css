@@ -1506,13 +1506,28 @@
 
 /* Constituency Projects Page Specific Styles */
 
+/* Force all projects to be visible */
+.projects-grid .project-card {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
 /* Projects Grid */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 2.5rem;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+    gap: 2.5rem !important;
     max-width: 1600px;
     margin: 0 auto;
+    /* Ensure all projects are visible */
+    overflow: visible !important;
+    /* Force grid to show all items */
+    grid-auto-rows: min-content !important;
+    grid-auto-flow: row !important;
+    /* Ensure grid adapts to content height */
 }
 
 .project-card {
@@ -1524,6 +1539,13 @@
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    /* Ensure visibility */
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    /* Force grid item display */
+    grid-column: auto !important;
+    grid-row: auto !important;
 }
 
 .project-card::before {
