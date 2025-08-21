@@ -227,8 +227,93 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(style);
     };
 
+    // Enhance Category 2 and 3 cards to match Category 1 visuals
+    const enhanceProjectCardsForConsistency = () => {
+        const enhanceContainer = (containerSelector, status) => {
+            const cards = document.querySelectorAll(`${containerSelector} .project-card`);
+            cards.forEach(card => {
+                // Skip if already enhanced
+                if (card.querySelector('.project-image-container')) return;
+
+                // Determine category type from card classes
+                const classList = Array.from(card.classList);
+                const categoryTypes = ['infrastructure', 'education', 'healthcare', 'empowerment', 'agriculture', 'security'];
+                const cardType = classList.find(cls => categoryTypes.includes(cls)) || 'infrastructure';
+
+                // Map default images per type (use existing assets only)
+                const imageByType = {
+                    infrastructure: '../project_supervise_image/road.jpg',
+                    education: '../project_supervise_image/classroom.jpg',
+                    healthcare: '../project_supervise_image/building.jpg',
+                    empowerment: '../empowerment_image/WhatsApp Image 2025-08-16 at 10.04.54_02caf28d.jpg',
+                    agriculture: '../project_supervise_image/electricity.jpg',
+                    security: '../project_supervise_image/road.jpg'
+                };
+
+                const overlayImageSrc = '../project_supervise_image/supervision.jpg';
+                const mainImageSrc = imageByType[cardType] || imageByType.infrastructure;
+
+                // Build image container
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'project-image-container';
+
+                const mainImg = document.createElement('img');
+                mainImg.className = 'project-image';
+                const titleText = card.querySelector('.project-title')?.textContent?.trim() || 'Project Image';
+                mainImg.alt = titleText;
+                mainImg.src = mainImageSrc;
+
+                const overlay = document.createElement('div');
+                overlay.className = 'supervision-overlay';
+
+                const overlayImg = document.createElement('img');
+                overlayImg.className = 'supervision-image';
+                overlayImg.alt = 'Overlay';
+                overlayImg.src = overlayImageSrc;
+
+                const caption = document.createElement('div');
+                caption.className = 'supervision-caption';
+                const icon = document.createElement('i');
+                const text = document.createElement('span');
+                if (status === 'ongoing') {
+                    icon.className = 'fas fa-spinner';
+                    text.textContent = 'In Progress';
+                } else if (status === 'approved') {
+                    icon.className = 'fas fa-stamp';
+                    text.textContent = 'Approved & Awarded';
+                } else {
+                    icon.className = 'fas fa-user-tie';
+                    text.textContent = 'Direct Supervision';
+                }
+                caption.appendChild(icon);
+                caption.appendChild(text);
+
+                overlay.appendChild(overlayImg);
+                overlay.appendChild(caption);
+
+                imageContainer.appendChild(mainImg);
+                imageContainer.appendChild(overlay);
+
+                // Insert after header if present, otherwise at top of card
+                const header = card.querySelector('.project-header');
+                if (header && header.nextSibling) {
+                    card.insertBefore(imageContainer, header.nextSibling);
+                } else if (header) {
+                    card.appendChild(imageContainer);
+                } else {
+                    card.insertBefore(imageContainer, card.firstChild);
+                }
+            });
+        };
+
+        // Apply to Categories 2 and 3
+        enhanceContainer('#ongoing-projects', 'ongoing');
+        enhanceContainer('#approved-projects', 'approved');
+    };
+
     // Initialize all features
     const init = () => {
+        enhanceProjectCardsForConsistency();
         addFloatingStyles();
         addStatusAnimations();
         addPrintButtonStyles();

@@ -1816,6 +1816,22 @@
     line-height: 1.6;
 }
 
+/* Category Banners */
+.category-banner {
+    text-align: center;
+    padding: 1rem;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 10px;
+    margin: 2rem 0 1rem;
+    font-weight: 700;
+}
+
+.category-banner h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
 /* Responsive Design for Projects Page */
 @media (max-width: 768px) {
     .projects-grid {
